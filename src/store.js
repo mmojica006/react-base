@@ -4,7 +4,8 @@ import { productsReducer } from "./slices/productsSlice";
 
 export default configureStore({
     reducer: {
-        products: productsReducer
+        products: productsReducer,
+        product: productByIdReducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck: false})
 })
