@@ -13,8 +13,7 @@ export const getProducts = createAsyncThunk( "products/getProducts",
     }
 );
 
-export const getProductById = createAsyncThunk(
-    "products/getProductId",
+export const getProductById = createAsyncThunk( "products/getProductId",
     async (id, {rejectWithValue}) => {
         try {
             await delayedTimeout(1000);
