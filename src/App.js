@@ -4,18 +4,28 @@ import { Home } from "./components/Home";
 import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
 import ProductDetail from "./components/product/ProductDetail";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getCategories } from "./actions/categoryAction";
 
 function App() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getCategories({})); //Solamente necesito que se almacenen dentro del store global, para tenerlas disponibles
+    }, [dispatch]);
     return (
         <Router>
             <div className="App">
                 <Header />
 
                 <div className="container container-fluid">
-                
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/product/:id" element={<ProductDetail />} />
+                        <Route
+                            path="/product/:id"
+                            element={<ProductDetail />}
+                        />
                     </Routes>
                 </div>
 
